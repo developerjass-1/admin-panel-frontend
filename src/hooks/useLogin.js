@@ -6,15 +6,15 @@ export default function useLogin() {
     const[loading, setLoading] = useState(false)
     const[error, setError] = useState(null)
 
-    const dologin = async({username,password})=>{
+    const dologin = async({email,password})=>{
       setLoading(true)
       setError(null)
         try {
-          const res = await login(username,password)
+          const res = await login(email,password)
           const accesstoken = localStorage.setItem("accessToken", res.data.tokens.access)
-          const user = localStorage.setItem("user", res.data.user.username)
+          const user = localStorage.setItem("user", res.data.user[0].username)
         console.log(res.data)
-        console.log(res.data.user.username)
+        console.log(res.data.user[0].username)
         toast.success(res.message)
         return res
         } catch (err) {

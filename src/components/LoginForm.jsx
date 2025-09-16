@@ -3,14 +3,14 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 export default function LoginForm({onSubmit,loading,error}) {
-      const [username, setUsername] = useState('');
+      const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   return (
     <div className='container'>
-        <Form onSubmit={e =>{ e.preventDefault(); onSubmit({username,password})}}>
+        <Form onSubmit={e =>{ e.preventDefault(); onSubmit({email,password})}}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Username</Form.Label>
-        <Form.Control type="text" placeholder="Enter username" value={username} onChange={(e)=>setUsername(e.target.value)} />
+        <Form.Label>Email</Form.Label>
+        <Form.Control type="email" placeholder="Enter Email" value={email} onChange={(e)=>setEmail(e.target.value)} />
        
       </Form.Group>
 
