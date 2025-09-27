@@ -1,37 +1,28 @@
-import { BrowserRouter,Route, Routes } from 'react-router-dom'
-import './App.css'
-import LoginContainer from './containers/LoginContainer'
-import Dashboard from './components/Dashboard'
-import ProtectedRoute from './components/ProtectedRoute'
-import { ToastContainer } from 'react-toastify';
+import { Routes, Route, Navigate } from "react-router-dom";
+import ProtectedRoute from "@/services/ProtectedRoute";
+import Dashboard from "@/layouts/dashboard"; 
+import Auth from "@/layouts/auth"; 
 
 function App() {
-
   return (
-    <>
-    <ToastContainer
-position="top-right"
-autoClose={5000}
-hideProgressBar={false}
-newestOnTop={false}
-closeOnClick={false}
-rtl={false}
-pauseOnFocusLoss
-draggable
-pauseOnHover
-theme="light"
+    <Routes>
+      {/* Dashboard pages */}
+      <Route
+        path="/dashboard/*"
+        element={
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
+        }
+      />
 
-/>
-      <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<LoginContainer/>}/>
-        
-          <Route path='/dashboard' element={<ProtectedRoute> <Dashboard/> </ProtectedRoute>}/>
-        
-      </Routes>
-      </BrowserRouter>
-    </>
-  )
+      {/* Auth pages - no /auth prefix */}
+      <Route path="/*" element={<Auth />} />
+
+      {/* Catch-all -> redirect */}
+      <Route path="*" element={<Navigate to="/sign-in" replace />} />
+    </Routes>
+  );
 }
 
-export default App
+export default App;
