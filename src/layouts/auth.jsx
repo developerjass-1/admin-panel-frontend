@@ -24,11 +24,11 @@ export function Auth() {
       path: "/dashboard/home",
       icon: UserIcon,
     },
-    {
-      name: "sign up",
-      path: "/sign-up",
-      icon: UserPlusIcon,
-    },
+    // {
+    //   name: "sign up",
+    //   path: "/sign-up",
+    //   icon: UserPlusIcon,
+    // },
     {
       name: "sign in",
       path: "/sign-in",

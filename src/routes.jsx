@@ -64,12 +64,12 @@ export const dashboardRoutes = [
     path: "/sign-in",
     element: (<AuthRoute><SignIn /> </AuthRoute>),
   },
-  {
-    icon: <RectangleStackIcon {...icon} />,
-    name: "sign up",
-    path: "/sign-up",
-    element: (<AuthRoute><SignUp /> </AuthRoute>),
-  },
+  // {
+  //   icon: <RectangleStackIcon {...icon} />,
+  //   name: "sign up",
+  //   path: "/sign-up",
+  //   element: (<AuthRoute><SignUp /> </AuthRoute>),
+  // },
 ];
 
 

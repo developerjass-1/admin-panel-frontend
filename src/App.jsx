@@ -1,7 +1,7 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import ProtectedRoute from "@/services/ProtectedRoute";
-import Dashboard from "@/layouts/dashboard"; 
-import Auth from "@/layouts/auth"; 
+import Dashboard from "@/layouts/dashboard";
+import Auth from "@/layouts/auth";
 
 function App() {
   return (
@@ -13,6 +13,19 @@ function App() {
           <ProtectedRoute>
             <Dashboard />
           </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/"
+        element={
+          <Navigate
+            to={
+              localStorage.getItem("refreshToken")
+                ? "/dashboard/home"
+                : "/sign-in"
+            }
+            replace
+          />
         }
       />
 

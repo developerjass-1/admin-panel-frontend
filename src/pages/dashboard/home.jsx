@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Typography,
   Card,
@@ -12,6 +12,7 @@ import {
   Avatar,
   Tooltip,
   Progress,
+  Checkbox,
 } from "@material-tailwind/react";
 import {
   EllipsisVerticalIcon,
@@ -28,8 +29,14 @@ import {
 import { CheckCircleIcon, ClockIcon } from "@heroicons/react/24/solid";
 
 export function Home() {
+  const [isChecked, setIsChecked] = useState({})
+
+  // const filteredData = statisticsCardsData.filter(title == true)
   return (
     <div className="mt-12">
+     <Checkbox label="Business"/>
+     <Checkbox label="Finance" />
+     <Checkbox label="Sales" />
       <div className="mb-12 grid gap-y-10 gap-x-6 md:grid-cols-2 xl:grid-cols-4">
         {statisticsCardsData.map(({ icon, title, footer, ...rest }) => (
           <StatisticsCard
